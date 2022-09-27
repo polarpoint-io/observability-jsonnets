@@ -3,7 +3,7 @@
 set -ue
 
 main () {
-      ./promtool check rules ${TEMPLATE_TYPE}/generated/*.yaml
+      promtool check rules ${TEMPLATE_TYPE}/generated/*.yaml
 }
 
 source "$(dirname "$0")/libs.sh"
