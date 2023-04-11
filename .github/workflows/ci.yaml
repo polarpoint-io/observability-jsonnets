@@ -1,0 +1,14 @@
+name: Jsonnet
+on:
+  pull_request:
+  push:
+    
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kobtea/setup-jsonnet-action@v1
+      - run: |
+          jb install
+          find . -type f | xargs -IFILE bash -c "jsonnetfmt FILE | diff -u FILE -"
